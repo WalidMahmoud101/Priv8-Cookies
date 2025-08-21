@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cookies</title>
+    <style>
+  body { font: 12px system-ui, sans-serif; margin: 10px; width: 420px; }
+  header { display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap: wrap; }
+      button { padding:6px 10px; }
+      input[type="text"] { width:100%; padding:6px; margin:6px 0; }
+      .meta { color:#666; margin:6px 0 10px; }
+  .list { max-height: 520px; overflow:auto; border:1px solid #ddd; border-radius:6px; padding:6px; }
+      .item { padding:6px; border-bottom:1px solid #eee; }
+      .item:last-child { border-bottom:none; }
+      .k { font-weight:600; }
+      .tag { font-size:11px; color:#555; background:#f2f2f2; border-radius:4px; padding:1px 6px; margin-left:6px; }
+      .err { color:#b00020; }
+      .ok { color:#0a7f2e; }
+      .row { display:flex; gap:6px; flex-wrap:wrap; }
+      code { background:#f7f7f7; padding:1px 3px; border-radius:4px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button id="refresh">Refresh</button>
+      <button id="copy">Copy JSON</button>
+  <button id="export">Export JSON</button>
+  <button id="exportDomain" title="Export cookies for base domain (all subdomains)">Export Domain</button>
+  <button id="exportStorage" title="Export page storage (local/session) + cookies">Export Storage</button>
+  <button id="exportAll" title="Export cookies from all sites">Export All</button>
+  <button id="import" title="Import cookies from JSON">Import</button>
+  <button id="deleteAll" title="Delete all cookies across the browser profile" style="background:#7b1fa2;color:#fff;">Delete All</button>
+  <button id="accept" title="Try to accept cookie banner on this page">Accept Cookies</button>
+  <button id="exportGoogle" title="Export Google bundle (mail/accounts/root)">Export Google Bundle</button>
+    </header>
+
+    <div class="row" style="margin:6px 0; align-items:center;">
+      <input id="search" type="text" placeholder="Filter by name/domain/value..." style="flex:1;" />
+      <select id="sort" title="Sort cookies" style="height:30px;">
+        <option value="name">Sort: Name</option>
+        <option value="domain">Sort: Domain</option>
+        <option value="expires">Sort: Expires</option>
+      </select>
+      <button id="deleteSite" title="Delete all cookies for current site" style="background:#b00020;color:#fff;">Delete Site</button>
+    </div>
+
+      <div class="row" style="margin:6px 0; align-items:center;">
+        <label for="domainSelect" class="k">Domain:</label>
+        <select id="domainSelect" style="flex:1; min-width:200px;">
+          <option value="">-- Select domain --</option>
+        </select>
+        <button id="exportByDomain" title="Export cookies for selected domain">Export</button>
+        <button id="deleteByDomain" title="Delete cookies for selected domain" style="background:#b00020;color:#fff;">Delete</button>
+      </div>
+
+    <div class="meta" id="meta">Ready</div>
+    <div class="list" id="list"></div>
+
+  <input type="file" id="fileInput" accept="application/json,.json" style="display:none" />
+
+    <script src="popup.js"></script>
+  </body>
+</html>

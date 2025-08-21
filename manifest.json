@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Priv8 Cookie Viewer (Local)",
+  "short_name": "Priv8 Cookie Viewer",
+  "version": "0.2.0",
+  "description": "List, export, and import cookies. Local-only, for your own sessions.",
+  "permissions": ["cookies", "activeTab", "downloads", "storage", "tabs", "scripting", "browsingData"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "128": "cookie.png"
+  },
+  "action": {
+    "default_title": "Priv8-Cookies",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "cookie.png"
+    }
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["consent.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
