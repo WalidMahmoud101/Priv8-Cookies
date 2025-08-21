@@ -1,4 +1,4 @@
-# Cookie Viewer (Local)
+# Cookie Viewer (DOZZY)
 
 A simple Chrome Extension (Manifest V3) to list and export cookies for the current site. Designed for local debugging and personal use.
 
@@ -50,3 +50,4 @@ To produce a `.crx` for local/org installation:
 3. For updates with the same key:
 	- `& "C:\Program Files\Google\Chrome\Application\chrome.exe" --pack-extension="e:\Users\Pentester\Desktop\WORK\New folder\cookie-viewer" --pack-extension-key="e:\Users\Pentester\Desktop\WORK\New folder\cookie-viewer.pem"`
 4. Install via `chrome://extensions` (Developer mode) by dragging the `.crx` file. If blocked, use "Load unpacked" instead or deploy via enterprise policies.
+
